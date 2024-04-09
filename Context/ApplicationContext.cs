@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using WebCadastro.Models.Pessoa;
 
 namespace WebCadastro.Context
 {
@@ -8,5 +9,7 @@ namespace WebCadastro.Context
         {
 
         }
+
+        public DbSet<Pessoa> Pessoa { get; set; }
     }
 }
