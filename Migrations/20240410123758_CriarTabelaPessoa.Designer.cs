@@ -12,7 +12,7 @@ using WebCadastro.Context;
 namespace WebCadastro.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20240409174302_CriarTabelaPessoa")]
+    [Migration("20240410123758_CriarTabelaPessoa")]
     partial class CriarTabelaPessoa
     {
         /// <inheritdoc />
@@ -54,7 +54,7 @@ namespace WebCadastro.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DataNascimento")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("date");
 
                     b.Property<string>("Endereco")
                         .IsRequired()
@@ -72,8 +72,10 @@ namespace WebCadastro.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("Sexo")
-                        .HasColumnType("bit");
+                    b.Property<string>("Sexo")
+                        .IsRequired()
+                        .HasMaxLength(1)
+                        .HasColumnType("nvarchar(1)");
 
                     b.Property<string>("UF")
                         .IsRequired()

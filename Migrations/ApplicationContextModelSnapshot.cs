@@ -51,7 +51,7 @@ namespace WebCadastro.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DataNascimento")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("date");
 
                     b.Property<string>("Endereco")
                         .IsRequired()
@@ -69,8 +69,10 @@ namespace WebCadastro.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("Sexo")
-                        .HasColumnType("bit");
+                    b.Property<string>("Sexo")
+                        .IsRequired()
+                        .HasMaxLength(1)
+                        .HasColumnType("nvarchar(1)");
 
                     b.Property<string>("UF")
                         .IsRequired()
